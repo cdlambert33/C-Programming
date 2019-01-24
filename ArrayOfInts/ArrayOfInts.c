@@ -32,7 +32,7 @@ void makeAnArray(int sumOfInts)
 
 	if(0 == (sumOfInts%1000))
 		{
-			printf("%i\n", sumOfInts);
-			printf("array size: %i\n", sizeof(arrayOfInts)/sizeof(singleNumberArray));
+			printf("%d\n", sumOfInts);
+			printf("array size: %lu\n", sizeof(arrayOfInts)/sizeof(singleNumberArray));
 		} 		
 }
