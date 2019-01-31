@@ -32,7 +32,7 @@ int main()
 	for(i = 0; i < 1000; i++){
 		for(j = 0; j < 1000; j++){
 			sum = sum + *(firstArray + i*1000 + j);
-			sumDouble = sumDouble + (double)*(firstArray + 				i * 1000 + j);	
+			sumDouble = sumDouble + (double)*(firstArray + i * 1000 + j);	
 		}	
 	}	
 	
