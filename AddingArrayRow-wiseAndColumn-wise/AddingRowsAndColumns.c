@@ -3,33 +3,36 @@
 
 // Method declaration
 void helloWorld();
-void createArray();
-void fillArray();
-void emptyArray();
-void findArraySumColumnwise();
-void findArraySumRowwise();
+void createArray(void);
+void fillArray(void);
+void emptyArray(void);
+void findArraySumColumnwise(void);
+void findArraySumRowwise(void);
+void printArray(void);
 
 // Variable declaration
-int * array;
-int arraySize = 3;
+double * array;
+long int arraySize = 3;
 double * arrayAddress;
-int rowIndex, columnIndex;
-int columnArraySum, rowArraySum;
+long int rowIndex, columnIndex;
+long int columnArraySum, rowArraySum;
+
 
 
 int main()
 {
 	helloWorld();
-	//createArray();
+	createArray();
 	//findArraySumColumnwise();
-	findArraySumRowwise();
-
+	//findArraySumRowwise();
 	for(int i = 2; i < 6; i++){
 		printf("I is %d\n", i);
 	}
 
 	printf("Hello world!\n");
-		return 0;
+
+printArray();
+	return 0;
 }
 
 void helloWorld(){
@@ -38,35 +41,58 @@ void helloWorld(){
 
 }
 
-void createArray(){
-	array = (int*)malloc(arraySize * arraySize * sizeof(int));
+void createArray(void){
+	printf("Hello world inside create array!\n");
 
+	arrayAddress = (double*)malloc(arraySize * arraySize * sizeof(double));
+printf("Hello world inside create array! after malloc\n");
 	emptyArray();
 	fillArray();
-	//printf("%p\n", array);
+
+	//0printf("%p\n", array);
 }
 
-void fillArray(){
-	int counter = 1;
-	//int rowIndex, columnIndex;
+void fillArray(void){
+	double counter = 1;
 
 	for(rowIndex = 0; rowIndex < arraySize; rowIndex++){
 		for(columnIndex = 0; columnIndex < arraySize; columnIndex++){
+			printf("counter: %.0f\n", counter);
 			*(arrayAddress + columnIndex + (rowIndex * arraySize)) = counter;
 			counter++;
 		}
 	}
 }
 
-void emptyArray(){
+void printArray(void){
+	//double counter = 1;
+	//printf("Hello world inside empty array!\n");
 	for(rowIndex = 0; rowIndex < arraySize; rowIndex++){
 		for(columnIndex = 0; columnIndex < arraySize; columnIndex++){
-			*(arrayAddress + columnIndex + (rowIndex * arraySize)) = 0;
+			printf("%.0f, ",
+			 *(arrayAddress + columnIndex + (rowIndex * arraySize)));
+			//counter++;
 		}
+		printf("\n");
 	}
+	//printf("Hello world inside empty array! after work\n");
 }
 
-void findArraySumColumnwise(){
+
+void emptyArray(void){
+	double counter = 1;
+	printf("Hello world inside empty array!\n");
+	for(rowIndex = 0; rowIndex < arraySize; rowIndex++){
+		for(columnIndex = 0; columnIndex < arraySize; columnIndex++){
+			printf("counter: %.0f\n", counter);
+			*(arrayAddress + columnIndex + (rowIndex * arraySize)) = 0;
+			counter++;
+		}
+	}
+	printf("Hello world inside empty array! after work\n");
+}
+
+void findArraySumColumnwise(void){
 	columnArraySum = 0;
 
 	for(columnIndex = 0; columnIndex < arraySize; columnIndex++){
@@ -74,10 +100,10 @@ void findArraySumColumnwise(){
 			columnArraySum = columnArraySum + (*(arrayAddress + columnIndex + (rowIndex * arraySize)));
 		}
 	}
-	printf("%.0d\n", columnArraySum );
+	printf("%.0ld\n", columnArraySum );
 }
 
-void findArraySumRowwise(){
+void findArraySumRowwise(void){
 	rowArraySum = 0;
 
 	for(rowIndex = 0; rowIndex < arraySize; rowIndex++){
@@ -85,5 +111,5 @@ void findArraySumRowwise(){
 			rowArraySum = rowArraySum + (*(arrayAddress + rowIndex + (columnIndex * arraySize)));
 		}
 	}
-	printf("%.0d\n", rowArraySum );
+	printf("%.0ld\n", rowArraySum );
 }
