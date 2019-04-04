@@ -13,6 +13,6 @@ int main()
 	}
 	printf("%d\n", sumOfInts);
 
-	printf("Bye world\n");
+	printf("Bye world!\n");
 	return 0;
 }

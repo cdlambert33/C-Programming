@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <omp.h>
 
-//to compoile using openmp
+//to compile using openmp
 //gcc -fopenmp openMPhello.c
 
 int main(){
